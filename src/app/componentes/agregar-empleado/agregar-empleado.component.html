@@ -5,18 +5,18 @@
 
     <div class="card-body">
 
-        <form >
+        <form [formGroup]="formularioEmpleado" (ngSubmit)="enviarDatos()">
             <div class="mb-3">
                 <label>Nombre:</label>
-                <input type="text" class="form-control" placeholder="Ingrese el nombre">
+                <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese el nombre">
             </div>
             <div class="mb-3">
                 <label>Correo:</label>
-                <input type="email" class="form-control" placeholder="Ingrese el correo">
+                <input formControlName="correo" type="email" class="form-control" placeholder="Ingrese el correo">
             </div>
 
-            <button class="btn btn-success">GUARDAR</button>
-            <button class="btn btn-danger">CANCELAR</button>       
+            <button type="submit" class="btn btn-success">GUARDAR</button>
+            <button type="submit" class="btn btn-danger">CANCELAR</button>       
         </form>
     </div>
 </div>
