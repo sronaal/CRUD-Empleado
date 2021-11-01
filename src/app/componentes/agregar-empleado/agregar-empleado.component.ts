@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+
+//Servicio para insertar datos
+
+import { CrudEmpleadoService } from 'src/app/servicio/crud-empleado.service';
 @Component({
   selector: 'app-agregar-empleado',
   templateUrl: './agregar-empleado.component.html',
@@ -9,7 +13,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class AgregarEmpleadoComponent implements OnInit {
 
   formularioEmpleado: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+  private crudService:CrudEmpleadoService 
+  ){
 
     this.formularioEmpleado = this.fb.group({
 
@@ -24,7 +30,7 @@ export class AgregarEmpleadoComponent implements OnInit {
 
   enviarDatos(){
     
-    console.log(this.formularioEmpleado.value);
+    this.crudService.AgregarEmpleado(this.formularioEmpleado.value).subscribe();
 
   }
 
