@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CrudEmpleadoService } from 'src/app/servicio/crud-empleado.service';
+import { Empleado } from 'src/app/servicio/Empleado';
 @Component({
   selector: 'app-listar-empleado',
   templateUrl: './listar-empleado.component.html',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarEmpleadoComponent implements OnInit {
 
-  constructor() { }
+  Empleados: any;
+  constructor(private crudService:CrudEmpleadoService
+  ) { }
 
   ngOnInit(): void {
+    this.crudService.ObtenerEmpleados().subscribe(respuesta=>{
+      this.Empleados=respuesta;
+      
+    });
   }
 
 }

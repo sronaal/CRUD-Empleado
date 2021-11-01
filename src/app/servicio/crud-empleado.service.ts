@@ -20,5 +20,9 @@ export class CrudEmpleadoService {
       return this.clienteHTTP.post(this.Api+"?insertar=1",datosEmpleado);
     }
 
+    ObtenerEmpleados(){
+      return this.clienteHTTP.get(this.Api)
+    }
+
    
 }

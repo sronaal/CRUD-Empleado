@@ -13,10 +13,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <th>Ronal</th>
-                    <th>ronal@gmail.com</th>
+                <tr *ngFor="let empleado of Empleados; let iControl=index">
+                    <td>{{empleado.id}}</td>
+                    <th>{{empleado.nombre}}</th>
+                    <th>{{empleado.correo}}</th>
                     <th>
                         <a routerLink="/editar-empleado/1">Editar</a>
                     </th>
